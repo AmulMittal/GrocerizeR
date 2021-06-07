@@ -1,0 +1,252 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 400 !important;
+  font-family: "Comic Neue" !important;
+}
+
+.reciepe-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+.header {
+  padding: 22px 40px 22px 25px;
+}
+
+.sub-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.nav-title {
+  font-size: 16px;
+  color: #565656;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 20px 10px 20px;
+}
+
+.active {
+  color: #fff;
+  border-bottom: 2.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.sign-text {
+  font-size: 14px;
+  color: #ededed;
+  font-weight: 500;
+  text-align: right;
+  text-decoration: none;
+}
+
+.bg-transparent {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.reciepe-section {
+  padding: 100px 0px;
+}
+
+.reciepe-container {
+  max-width: 78%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 46px;
+  line-height: 58px;
+  color: #ffffff;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ml-7 {
+  margin-left: 5px;
+}
+
+.m-rl {
+  margin: 0px 5px;
+}
+
+/* media query*/
+@media screen and (max-width: 767px) {
+  .sub-header {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .reciepe-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.recipe-para {
+  font-size: 24px;
+  line-height: 36px;
+  color: #ffffff;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.custom-input {
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  padding: 10px 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-right: 20px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.search-icon {
+  max-width: 38px;
+  cursor: pointer;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.btn-md {
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 10px 30px;
+  border: 1px solid white;
+  color: white;
+  margin: 0px 10px;
+}
+
+.btn-md:hover {
+  background-color: white;
+  color: black;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-img-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.clr-white {
+  color: white;
+}
+
+.section-cards {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.note {
+  width: 100%;
+  height: 131px;
+  border: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.note:focus {
+  outline: none;
+}
+
+.p-0 {
+  padding: 0px;
+}

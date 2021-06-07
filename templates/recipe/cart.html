@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+{% load static %}
+
+
+{% block pagecss %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+<link rel="stylesheet" href="{% static 'css/sprecipe.css' %}" />
+{% endblock pagecss %}
+
+{% block content %}
+
+<div class="bg-fixed" style="background-image: url('{% static "images\\bg-img\\cart.jpeg" %}')"></div>
+    <section class="reciepe-section">
+        <div class="reciepe-container">
+          <h2 class="title-cart">Cart</h2>
+
+          <div class="para-parent">
+            <p class="recipe-para">Do you need anything else?</p>
+            <a href="{% url 'recipe' %}">
+            <button class="btn-md bg-green">shop here</button>
+            </a>
+        </div>
+    </section>
+  
+    
+    <section class="section-cards">
+      <div class="row">
+          {% for cartingredient, quantity in cartingredients.items  %}
+          <div class="col-md-6">
+              <div class="flip-card">
+                  <!-- {% if show_remove_ing %} -->
+                  <div class="rem-parent">
+                      <a href="{% url 'remove_ingredient' cartingredient.id %}"class="btn btn-circle btn-sm btn-secondary">X</a>
+                  </div>
+                  <!-- {% endif %} -->
+                  <p class="ing-title">{{cartingredient.name}}</p>
+                  <div class="custom-row">
+                      <div class="img-box">
+                          <img src="/{{ cartingredient.image  }}" class="ing-image">
+                          <p class="gram">{{cartingredient.weight}} g</p>
+                      </div>
+                      <div class="price-box">
+                        <b class="price">${% widthratio quantity 1 cartingredient.price %}</b>
+
+
+                          <p class="pricepergram">{{ cartingredient.price|is_in:cartingredient.weight|floatformat:2 }}/100g</p>
+
+
+                          <!-- <p class="pricepergram">${{ppgram|floatformat:2}}/100g</p> -->
+                      </div>
+                  </div>
+                  <div class="inc-dec">
+                      
+                          
+                          <a href="{% url 'increment_decrement' cartingredient.id 'decrement' %}" class="btn btn-circle btn-sm btn-danger" type="submit">-</a>
+                        
+                      <p class="inc-dec-text">{{quantity}}</p>
+                      
+                          
+                          <a href="{% url 'increment_decrement' cartingredient.id 'increment' %}"class="btn btn-circle btn-sm btn-success" type="submit">+</a>
+                      
+                      <!-- <img src="{% static 'images/negative.svg' %}" type = "submit" class="minus"> -->
+                      <!-- <img src="{% static 'images/plus.svg' %}" class="plus"> -->
+                  </div>  
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+
+
+      <section class="price-section">
+          <div class="price-container">
+              <div>
+                  <p class="price">Total Price: <span>{{ totalprice}}</span> </p>
+              </div>
+              <button class="btn-green">Place order</button>
+          </div>
+      </section>
+    
+</div>
+
+
+{% endblock content %}

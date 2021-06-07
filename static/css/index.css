@@ -1,0 +1,309 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 400 !important;
+  font-family: "Comic Neue" !important;
+}
+
+.reciepe-wrapper {
+  background-size: cover;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.bg-fixed {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header {
+  padding: 22px 40px 22px 25px;
+}
+
+.sub-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.nav-title {
+  font-size: 16px;
+  color: #565656;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 20px 10px 20px;
+}
+
+.active {
+  color: #fff;
+  border-bottom: 2.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.sign-text {
+  font-size: 14px;
+  color: #ededed;
+  font-weight: 500;
+  text-align: right;
+  text-decoration: none;
+}
+
+.bg-transparent {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.reciepe-section {
+  padding: 100px 0px;
+}
+
+.reciepe-container {
+  max-width: 78%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 46px;
+  line-height: 58px;
+  color: #ffffff;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ml-7 {
+  margin-left: 5px;
+}
+
+.m-rl {
+  margin: 0px 5px;
+}
+
+.padding {
+  padding: 150px 0px;
+}
+
+.banner-title {
+  font-size: 60px;
+  letter-spacing: -1px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.banner-para {
+  font-size: 24px;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.btn-shop {
+  background-color: #117a8b !important;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 36px;
+  border: none;
+  border-radius: 100px;
+  margin-top: 30px;
+  color: white;
+}
+
+.section-padding-80-0 {
+  padding-top: 80px;
+  padding-bottom: 0;
+}
+
+.single-top-catagory {
+  position: relative;
+  max-height: 247px;
+  z-index: 2;
+  margin-bottom: 30px;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.single-top-catagory img {
+  width: 100%;
+}
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.single-top-catagory .top-cta-content {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  width: auto;
+  height: auto;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.single-top-catagory .top-cta-content h3 {
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.single-top-catagory .top-cta-content h6 {
+  color: #ffffff;
+  margin-bottom: 30px;
+  display: block;
+  font-weight: 400;
+}
+
+.delicious-btn {
+  color: #ffffff !important;
+  border: none;
+  border-left: 3px solid #1c8314;
+  border-radius: 0;
+  padding: 0 30px;
+  font-size: 16px;
+  background-color: #40ba37 !important;
+}
+
+.single-top-catagory::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  background: -webkit-linear-gradient(to right, #000, rgba(0, 0, 0, 0.1));
+  background: linear-gradient(to right, #000, rgba(0, 0, 0, 0.1));
+}
+.steps {
+  font-family: "Blogger-Sans", Helvetica, Sans-serif;
+  font-size: 42px;
+  color: #ffcc00;
+  text-align: right;
+  padding-right: 7px;
+}
+
+.main-title {
+  font-size: 26px;
+  color: #474747;
+  text-align: center;
+  margin-bottom: 40px;
+  font-style: italic;
+  font-weight: bold;
+  text-shadow: 2px 2px #474747;
+}
+
+.best-receipe-area {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 50px;
+}
+
+.section-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.section-heading h3 {
+  font-size: 30px;
+  margin-bottom: 0;
+}
+.single-best-receipe-area {
+  position: relative;
+  z-index: 1;
+}
+
+.mb-30 {
+  margin-bottom: 30px !important;
+}
+
+.single-best-receipe-area img {
+  border-bottom: 3px solid #40ba37;
+}
+.single-best-receipe-area .receipe-content {
+  padding-top: 30px;
+  text-align: center;
+}
+.single-best-receipe-area .receipe-content h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+/* footer */
+
+.footer-area {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 140px;
+  background-color: #111;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.footer-area .footer-social-info {
+  padding-right: 15px;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.footer-area p {
+  color: #4b4b4b;
+  font-weight: 600;
+  margin-bottom: 0;
+  padding-left: 15px;
+}
+
+.note {
+  width: 100%;
+  height: 131px;
+  border: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.note:focus {
+  outline: none;
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+.abt-para{
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 30px;
+}

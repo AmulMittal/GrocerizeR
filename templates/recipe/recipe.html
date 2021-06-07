@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pagecss %}
+<link rel="stylesheet" href="{% static 'css/recipe.css' %}" />
+{% endblock pagecss %}
+{% block content %}
+<div class="reciepe-wrapper">
+  <div style="background-image: url('{% static "images\\banner.jpg" %}')" class="bg-fixed"> 
+    <section class="reciepe-section">
+      <div class="reciepe-container">
+        <h2 class="title">Recipes</h2>
+
+        <p class="recipe-para">Choose from thousands of recipes and save your favourites.
+          Come back daily to discover more and use the search or filters to find specific recipes</p>
+          <form action="{%url 'search_recipe' %}" method="POST">
+            <div class="bg-transparent">
+            {% csrf_token %}
+            <input type="text" name="recipe_name" class="custom-input" placeholder="Search Recipes"/>
+            <button class="btn-md" type="submit">Search</button>
+            <!-- <img src="{% static 'images/search-white.svg' %}" class="search-icon"/> -->
+            </div>
+          </form> 
+
+        <div class="button-row">
+          {% for category in category_recipe %}
+          <form action="{% url 'recipe_category' category.name%}" method="POST">
+            {% csrf_token %}
+            <button class="btn-md" type="submit">{{category.name}}</button>
+          </form>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="section-cards container-fluid">
+      <div class="row">
+        
+
+        {% for recipe in recipes %}
+        <div class="col-md-4">
+          <div class="flip-card shadow">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="/{{ recipe.image  }}" alt="Avatar" class="card-img">
+              </div>
+              <div class="flip-card-back">
+                <img src="/{{ recipe.image  }}" alt="Avatar" class="card-img-back">
+                <a href="{% url 'sprecipe' recipe.id %}" class="clr-white"><h1 class="">{{ recipe.name }}</h1> </a> 
+                <!-- <p>{{ recipe.description }}</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>
+
+
+{% endblock content %}

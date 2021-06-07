@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pagecss %}
+    <link rel="stylesheet" href="{% static 'css/sprecipe.css' %}" />
+{% endblock pagecss %}
+
+{% block content %}
+
+<div style="background-image: url('{% static "images\\banner.jpg" %}')" class="reciepe-wrapper"> 
+    <div class="row-reciepe-title" >
+        <div class = "img-column">
+            <img src="/{{ selected_recipe.image }}" alt="img-reciepe" class="rec-img"> 
+        </div>
+        <div class = "title-column">
+            <div class="title-subcontent">
+                <h6 class="title">{{ selected_recipe.name }}</h6>
+                <p class="subcontent">{{ selected_recipe.description }}</p>
+            </div>
+            <div class="igredients-method">
+                <button type="button" class="ingredients-btn" data-toggle="modal" data-target="#exampleModal"><b>Ingredients</b></button>
+                <button type="button" class="method-btn" data-toggle="modal" data-target="#exampleModal-method"><b>Method</b></button>
+            </div>   
+        </div>
+    </div>
+    <section class="section-cards">
+        <div class="row">
+            {% for cartingredient , ppgram in cartingredients  %}
+            <div class="col-md-6">
+                <div class="flip-card">
+                    {% if show_remove_ing %}
+                    <div class="rem-parent">
+                        <a href="{% url 'remove_ingredient' cartingredient.id %}"class="btn btn-circle btn-sm btn-secondary">X</a>
+                    </div>
+                    {% endif %}
+                    <p class="ing-title">{{cartingredient.ingredients.name}}</p>
+                    <div class="custom-row">
+                        <div class="img-box">
+                            <img src="/{{ cartingredient.ingredients.image  }}" class="ing-image">
+                            <p class="gram">{{cartingredient.ingredients.weight}} g</p>
+                        </div>
+                        <div class="price-box">
+                            <b class="price">${% widthratio cartingredient.quantity 1 cartingredient.ingredients.price %}</b>
+                            <p class="pricepergram">${{ppgram|floatformat:2}}/100g</p>
+                        </div>
+                    </div>
+                    <div class="inc-dec">
+                        
+                            
+                            <a href="{% url 'increment_decrement' cartingredient.id 'decrement' %}" class="btn btn-circle btn-sm btn-danger" type="submit">-</a>
+                          
+                        <p class="inc-dec-text">{{cartingredient.quantity}}</p>
+                        
+                            
+                            <a href="{% url 'increment_decrement' cartingredient.id 'increment' %}"class="btn btn-circle btn-sm btn-success" type="submit">+</a>
+                        
+                        <!-- <img src="{% static 'images/negative.svg' %}" type = "submit" class="minus"> -->
+                        <!-- <img src="{% static 'images/plus.svg' %}" class="plus"> -->
+                    </div>  
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+        
+<!-- Modal ingridients-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Ingredients</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        {{ recipe.ingredients_list|linebreaks }}
+    </div>
+    
+  </div>
+</div>
+</div>
+<div class="modal fade" id="exampleModal-method" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Method</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        {{ recipe.method|linebreaks }}
+    </div>
+    
+  </div>
+</div>
+</div>  
+    </div>
+</div>
+
+
+
+{% endblock content %}

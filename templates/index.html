@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pagecss %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock pagecss %}
+
+{% block content %}
+
+<section class="reciepe-wrapper" style="background-image: url('{% static "images\\bg-img\\bg1.jpg" %}')" >
+
+    <div class="container"> 
+        <div class="row"> 
+            <div class="col-md-12"> 
+                <div class="padding text-center text-white"> 
+                    <h1 class="banner-title">Shop your favourite recipes anytime, anywhere</h1>
+                    <p class="banner-para">Choose from thousands of recipes and get fresh ingredients delivered straight to your door.</p>
+                    <a href="{% url 'recipe' %}">
+                    <button class=" btn-shop ">SHOP NOW</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+<section class="top-catagory-area section-padding-80-0">
+    <div class="container">
+      <h2 class="main-title">HOW DOES IT WORK?</h2>
+        <div class="row">
+            <!-- Top Catagory Area -->
+            <div class="col-12 col-lg-6">
+                <div class="single-top-catagory">
+                    <img src="{% static '/images/bg-img/bg2.jpg' %}" alt="">
+                    <!-- Content -->
+                    <div class="top-cta-content">
+                        <h3>
+                            Discover New
+                            Recipes</h3>
+                        <h6>Find food inspiration and choose recipes you want to eat. With our wide recipe collection, you won’t have to eat the same boring meals again!</h6>
+                        <div class="steps">01</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Catagory Area -->
+            <div class="col-12 col-lg-6">
+                <div class="single-top-catagory">
+                    <img src="{% static '/images/bg-img/ing.jpeg' %}" alt="">
+                    <!-- Content -->
+                    <div class="top-cta-content">
+                        <h3>Order the
+                            Ingredients</h3>
+                        <h6>We turn the recipe ingredients into a customisable shopping list. Swap items, remove items you don’t need, or add other grocery items you do need. We work with our online grocery partners to deliver to your door, or pickup your order at your local store.</h6>
+                        <div class="steps">02</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- Top Catagory Area -->
+            <div class="col-12 col-lg-6">
+                <div class="single-top-catagory">
+                    <img src="{% static '/images/bg-img/about.png' %}" alt="">
+                    <!-- Content -->
+                    <div class="top-cta-content">
+                        <h3>Prepare
+                            your Meal</h3>
+                        <h6>Get ingredients straight to your kitchen so you can create delicious food with ease. Making multiple trips to the supermarket and forgotten ingredients a thing of the past!</h6>
+                        <div class="steps">03</div>
+                    </div>
+                </div>
+            </div>
+            
+    </div>
+</section>
+
+<section class="top-catagory-area section-padding-80-0">
+    <div class="container">
+      <h2 class="main-title">ABOUT US</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="abt-para">The website aims to help people cook at home with simplified recipes
+                    and time-efficient meal-prep which promote healthy eating by develop a simple 
+                    and effective online grocery shopping website that can encourage people to cook at home with efficient ways of 
+                    streamlining recipes to maximize variety of dishes based on the groceries ordered and reducing
+                    food wastage by alerting users if they purchase groceries which are currently in-stock at home.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer-area">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
+               
+                <!-- Footer Logo -->
+                <div class="footer-logo">
+                  <p class="login-icon">Grocerizer</p>
+                </div>
+                <!-- Copywrite -->
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright © Grocerizer
+            </div>
+        </div>
+    </div>
+    </footer>
+
+{% endblock content %}

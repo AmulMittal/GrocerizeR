@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    {% block pagecss %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% endblock pagecss %}
+
+    <title>Grocerizer</title>
+    <style>
+      /* header */
+      .bg-light-nav {
+        position: fixed !important;
+        width: 100% !important;
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        z-index: 9;
+      }
+
+      .nav-link {
+        color: white !important;
+        font-weight: 600;
+        font-size: 18px;
+        margin: 0 20px;
+      }
+
+      .navbar-brand {
+        font-size: 26px !important;
+        font-weight: 600;
+        font-style: italic;
+        color: white !important;
+        margin: 0 10px;
+        letter-spacing: 2px;
+      }
+
+      .nav-link:hover {
+        font-size: 20px;
+      }
+
+      .btn-circle.btn-sm {
+        width: 30px;
+        height: 30px;
+        padding: 6px 0px;
+        border-radius: 15px;
+        font-size: 12px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body onload="loadMyIngredient()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light-nav">
+      <a class="navbar-brand" href="#">Grocerizer</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'recipe' %}">Recipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'my_cookbook' %}">My CookBook</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'mealplanner' %}">MealPrep</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'mycart' %}">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#exampleModal-ing-list"
+              href="#"
+              >Ingredients</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Modal ingridients-->
+    <div
+      class="modal fade"
+      id="exampleModal-ing-list"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingredients</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            <textarea class="note" id="myIngredients"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+              onclick="saveMyIngredients()"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% block content %} {% endblock content %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function loadMyIngredient() {
+        let myOldIng = localStorage.getItem("myIng");
+        let myIng = document.getElementById("myIngredients");
+        myIng.value = myOldIng;
+      }
+
+      function saveMyIngredients() {
+        let myIng = document.getElementById("myIngredients").value;
+        localStorage.setItem("myIng", myIng);
+      }
+    </script>
+  </body>
+</html>
